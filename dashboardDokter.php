@@ -3,6 +3,11 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
+if (!isset($_SESSION['username'])) {
+  header("Location: index.php?page=loginDokter");
+  exit();
+}
+
 include_once("koneksi.php");
 ?>
 <!DOCTYPE html>
@@ -146,14 +151,6 @@ include_once("koneksi.php");
                 <i class="nav-icon fas fa-solid fa-stethoscope"></i>
                 <p>
                   Periksa
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="dashboardDokter.php?page=jadwalPeriksa" class="nav-link">
-                <i class="nav-icon fas fa-solid fa-stethoscope"></i>
-                <p>
-                  Jadwal Periksa
                 </p>
               </a>
             </li>

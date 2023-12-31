@@ -7,6 +7,16 @@ if (!isset($_SESSION['username'])) {
   exit;
 }
 
+if (isset($_GET['aksi'])) {
+  if ($_GET['aksi'] == 'hapus') {
+      $hapus = mysqli_query($mysqli, "DELETE FROM pasien WHERE id = '" . $_GET['id'] . "'");
+  }
+
+  echo "<script> 
+              document.location='dashboard.php?page=pasien';
+              </script>";
+}
+
 ?>
 
 <div>
@@ -40,7 +50,7 @@ if (!isset($_SESSION['username'])) {
         <td><?php echo $data['no_rm'] ?></td>
         <td>
           <a class="btn btn-danger rounded-pill px-3"
-            href="index.php?page=pasienBaru&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
+            href="index.php?page=pasien&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
         </td>
       </tr>
       <?php

@@ -142,6 +142,14 @@ include_once("koneksi.php");
               </a>
             </li>
             <li class="nav-item">
+              <a href="dashboard.php?page=jadwalPeriksa" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-hospital-user"></i>
+                <p>
+                  Jadwal Periksa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="dashboard.php?page=poli" class="nav-link">
                 <i class="nav-icon fas fa-solid fa-hospital"></i>
                 <p>

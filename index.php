@@ -30,55 +30,22 @@ include_once("koneksi.php");
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
-          <?php
-                    if (isset($_SESSION['username'])) {
-                        // Jika admin sudah login, tampilkan menu "Dashboard Admin"
-                    ?>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="dashboard.php">Dashboard Admin</a>
-          </li>
-          <?php
-                    }
-                    ?>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="dokterLoginHelper.php">Dokter</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.php?page=pasienBaru">PasienBaru</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.php?page=pasienLama">Pasien Lama</a>
           </li>
-
-
-        </ul>
-        <?php
-                if (isset($_SESSION['username'])) {
-                    // Jika pengguna sudah login, tampilkan tombol "Logout"
-                ?>
-        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="logoutAdmin.php">Logout (<?php echo $_SESSION['username'] ?>)</a>
+            <a class="nav-link" aria-current="page" href="index.php?page=pasienBaru">Pasien Baru</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.php?page=daftarPoliklinik">Daftar Poliklinik</a>
           </li>
         </ul>
-        <?php
-                } else {
-                    // Jika pengguna belum login, tampilkan tombol "Login" dan "Register"
-                ?>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?page=loginAdmin">Login Admin</a>
-          </li>
-        </ul>
-        <?php
-                }
-                ?>
 
       </div>
     </div>
   </nav>
 
-  <main role="main" class="container">
+  <main role="main">
     <?php
 
         if (isset($_GET['page'])) {

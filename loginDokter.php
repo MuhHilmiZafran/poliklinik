@@ -22,6 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['nip'] = $nip;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['nama'] = $row['nama'];
 
             // Redirect to the desired page after successful login
             header("Location: dashboardDokter.php");
