@@ -14,7 +14,8 @@ include_once("koneksi.php");
   <title>Klinik Sejahtera Sentosa</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -86,7 +87,7 @@ include_once("koneksi.php");
           </a>
         </li>
         <li class="nav-item">
-        <?php
+          <?php
         if (isset($_SESSION['nip'])) {
             $doctorNIP = $_SESSION['nip'];
 
@@ -101,12 +102,12 @@ include_once("koneksi.php");
                 $doctorName = "Unknown"; // Default value if the doctor is not found
             }
         ?>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="logoutDokter.php">Logout (<?php echo $doctorName; ?>)</a>
-                </li>
-            </ul>
-        <?php
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="logoutDokter.php">Logout (<?php echo $doctorName; ?>)</a>
+            </li>
+          </ul>
+          <?php
         } 
         ?>
 
@@ -142,21 +143,29 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboardDokter.php?page=periksa" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-stethoscope"></i>
+                <i class="nav-icon fas fa-solid fa-stethoscope"></i>
                 <p>
                   Periksa
                 </p>
               </a>
             </li>
             <li class="nav-item">
+              <a href="dashboardDokter.php?page=jadwalPeriksa" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-stethoscope"></i>
+                <p>
+                  Jadwal Periksa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="dashboardDokter.php?page=riwayatPasien" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-book-medical"></i>
+                <i class="nav-icon fas fa-solid fa-book-medical"></i>
                 <p>
                   Riwayat Pasien
                 </p>
               </a>
             </li>
-           
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -174,7 +183,7 @@ include_once("koneksi.php");
               <h2>
                 <?php
                 if (isset($_GET['page'])) {
-                  echo ucwords($_GET['page']);
+                  echo ucfirst($_GET['page']);
                 } else {
                   echo "Dashboard";
                 }
@@ -191,7 +200,7 @@ include_once("koneksi.php");
       <!-- Main content -->
       <main role="main" class="container">
         <div class="container-fluid">
-            <?php
+          <?php
             if (isset($_GET['page'])) {
                 include($_GET['page'] . ".php");
             } else {
@@ -234,7 +243,7 @@ include_once("koneksi.php");
   <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
-    $.widget.bridge('uibutton', $.ui.button)
+  $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -36,43 +36,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <section class="vh-100">
-    <div class="container py-5 h-100">
-        <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <div class="d-flex justify-content-center">
-                    <h2 class="mb-5" style="color: #0047AB;">Welcome Doctor</h2>
-                </div>
-                <form method="POST" action="index.php?page=loginDokter">
-                    <?php
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="d-flex justify-content-center">
+          <h2 class="mb-5" style="color: #0047AB;">Welcome Doctor</h2>
+        </div>
+        <form method="POST" action="index.php?page=loginDokter">
+          <?php
                     if (isset($error)) {
                         echo '<div class="alert alert-danger">' . $error . '</div>';
                     }
                     ?>
-                    <!-- NIP input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="nip">NIP</label>
-                        <input type="text" name="nip" required class="form-control form-control-lg" />
-                    </div>
+          <!-- NIP input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="nip">NIP</label>
+            <input type="text" name="nip" required class="form-control form-control-lg" />
+          </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="password">Password</label>
-                        <input type="password" name="password" required class="form-control form-control-lg" placeholder="Masukkan password anda" />
-                    </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" name="password" required class="form-control form-control-lg"
+              placeholder="Masukkan password anda" />
+          </div>
 
-                    <div class="d-flex justify-content-around align-items-center mb-4">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                            <label class="form-check-label" for="form1Example3"> Remember me </label>
-                        </div>
-                        <a href="#!">Forgot password?</a>
-                    </div>
-
-                    <button type="submit" class="btn btn-lg btn-block w-100" style="background-color: #0047AB; color: #FFFFFF;">Sign In</button>
-
-                </form>
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
             </div>
-        </div>
+            <a href="#!">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-block w-100"
+            style="background-color: #0047AB; color: #FFFFFF;">Sign In</button>
+
+        </form>
+      </div>
     </div>
+  </div>
 </section>

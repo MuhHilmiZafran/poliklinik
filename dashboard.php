@@ -2,6 +2,10 @@
 if (!isset($_SESSION)) {
   session_start();
 }
+if (!isset($_SESSION['username'])) {
+  header("Location: index.php?page=loginAdmin");
+  exit();
+}
 
 include_once("koneksi.php");
 ?>
@@ -14,7 +18,8 @@ include_once("koneksi.php");
   <title>Klinik Sejahtera Sentosa</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -90,11 +95,11 @@ include_once("koneksi.php");
           if (isset($_SESSION['username'])) {
             // Jika pengguna sudah login, tampilkan tombol "Logout"
           ?>
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="logoutAdmin.php">Logout (<?php echo $_SESSION['username'] ?>)</a>
-              </li>
-            </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="logoutAdmin.php">Logout (<?php echo $_SESSION['username'] ?>)</a>
+            </li>
+          </ul>
           <?php
           } 
           ?>
@@ -130,7 +135,7 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboard.php?page=dokter" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-hospital-user"></i>
+                <i class="nav-icon fas fa-solid fa-hospital-user"></i>
                 <p>
                   Dokter
                 </p>
@@ -138,15 +143,23 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboard.php?page=poli" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-hospital"></i>
+                <i class="nav-icon fas fa-solid fa-hospital"></i>
                 <p>
                   Poli
                 </p>
               </a>
             </li>
             <li class="nav-item">
+              <a href="dashboard.php?page=pasien" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-hospital"></i>
+                <p>
+                  Pasien
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="dashboard.php?page=obat" class="nav-link">
-              <i class="nav-icon fas fa-solid fa-pills"></i>
+                <i class="nav-icon fas fa-solid fa-pills"></i>
                 <p>
                   Obat
                 </p>
@@ -169,7 +182,7 @@ include_once("koneksi.php");
               <h2>
                 <?php
                 if (isset($_GET['page'])) {
-                  echo ucwords($_GET['page']);
+                  echo ucfirst($_GET['page']);
                 } else {
                   echo "Dashboard";
                 }
@@ -218,7 +231,7 @@ include_once("koneksi.php");
   <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
-    $.widget.bridge('uibutton', $.ui.button)
+  $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

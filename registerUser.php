@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
-                <div class="card-body">
-                    <form method="POST" action="index.php?page=registerUser">
-                        <?php
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
+        <div class="card-body">
+          <form method="POST" action="index.php?page=registerUser">
+            <?php
                         if (isset($error)) {
                             echo '<div class="alert alert-danger">' . $error . '
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -52,27 +52,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>';
                         }
                         ?>
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control" required placeholder="Masukkan nama anda">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" required placeholder="Masukkan password">
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control" required placeholder="Masukkan password konfirmasi">
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
-                        </div>
-                    </form>
-                    <div class="text-center">
-                        <p class="mt-3">Sudah Punya Akun? <a href="index.php?page=loginUser">Login</a></p>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" name="username" class="form-control" required placeholder="Masukkan nama anda">
             </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control" required placeholder="Masukkan password">
+            </div>
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" name="confirm_password" class="form-control" required
+                placeholder="Masukkan password konfirmasi">
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+          </form>
+          <div class="text-center">
+            <p class="mt-3">Sudah Punya Akun? <a href="index.php?page=loginUser">Login</a></p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
