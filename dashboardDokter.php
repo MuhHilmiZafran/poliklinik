@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['nip'])) {
   header("Location: index.php?page=loginDokter");
   exit();
 }
