@@ -42,10 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insert the new poli registration into the daftar_poli table
         $insert_query = "INSERT INTO daftar_poli (id_pasien, id_jadwal, keluhan, no_antrian, tanggal) VALUES ('".$_SESSION['id_pasien']."', '$id_jadwal', '$keluhan', '$no_antrian', NOW())";
         if (mysqli_query($mysqli, $insert_query)) {
-            // echo "<script>alert('No antrian anda adalah $no_antrian');</script>";
             $success = "No antrian anda adalah $no_antrian";
-            // $button_disabled = "disabled";
-            // Redirect to prevent form resubmission
+
             header("Location: index.php?page=pasienpoliklinik&no_antrian=$no_antrian");
         } else {
             $error = "Pendaftaran gagal";

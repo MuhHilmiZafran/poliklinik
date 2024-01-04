@@ -21,7 +21,12 @@
         $insert_query = "INSERT INTO daftar_poli (id_pasien, id_jadwal, keluhan, no_antrian, tanggal) VALUES ('".$_SESSION['id_pasien']."', '$id_jadwal', '$keluhan', '$no_antrian', NOW())";
         if (mysqli_query($mysqli, $insert_query)) {
             $success = "No antrian anda adalah $no_antrian";
-            
+            echo "
+            <script> 
+                alert('Berhasil menambah data.');
+                window.location.href='dashboardDokter.php?page=daftarPoliklinik';
+            </script>
+            ";
             header("Location: index.php?page=daftarPoliklinik&no_antrian=$no_antrian");
         } else {
             $error = "Pendaftaran gagal";

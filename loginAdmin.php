@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
-            header("Location: index.php");
+            header("Location: dashboard.php");
         } else {
             $error = "Password salah";
         }
