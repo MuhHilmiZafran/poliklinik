@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div class="form-outline mb-4">
                 <label class="form-label" for="username">Username</label>
                 <input type="text" name="username" class="form-control form-control-lg" required
-                  placeholder="Masukkan nama anda" />
+                  placeholder="Masukkan username anda" />
               </div>
 
               <div class="form-outline mb-4">

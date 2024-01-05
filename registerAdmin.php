@@ -66,14 +66,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 placeholder="Masukkan password konfirmasi">
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
+              <button type="submit" class="btn btn-primary btn-block">Simpan</button>
             </div>
           </form>
-          <div class="text-center">
-            <p class="mt-3">Sudah Punya Akun? <a href="index.php?page=loginUser">Login</a></p>
-          </div>
+
         </div>
+
       </div>
+
     </div>
   </div>
+  <br>
+  <br>
+  <!-- Table-->
+  <table class="table table-hover">
+    <!--thead atau baris judul-->
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Password</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <!--tbody berisi isi tabel sesuai dengan judul atau head-->
+    <tbody>
+      <!-- Kode PHP untuk menampilkan semua isi dari tabel urut-->
+      <?php
+            $result = mysqli_query($mysqli, "SELECT * FROM user");
+            $no = 1;
+            while ($data = mysqli_fetch_array($result)) {
+            ?>
+      <tr>
+        <th scope="row"><?php echo $no++ ?></th>
+        <td><?php echo $data['username'] ?></td>
+        <td><?php echo password_hash($data['password'], PASSWORD_DEFAULT) ?></td>
+
+        <td>
+          <a class="btn btn-success rounded-pill px-3"
+            href="dashboard.php?page=registerUser&id=<?php echo $data['id'] ?>">Ubah</a>
+          <a class="btn btn-danger rounded-pill px-3"
+            href="dashboard.php?page=registerUser&id=<?php echo $data['id'] ?>&aksi=hapus">Hapus</a>
+        </td>
+      </tr>
+      <?php
+            }
+            ?>
+    </tbody>
+  </table>
 </div>

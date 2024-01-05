@@ -173,6 +173,14 @@ include_once("koneksi.php");
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="dashboard.php?page=registerAdmin" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-pills"></i>
+                <p>
+                  Add Admin
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

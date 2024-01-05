@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <!-- NIP input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="nip">NIP</label>
-            <input type="text" name="nip" required class="form-control form-control-lg" />
+            <input type="text" name="nip" required class="form-control form-control-lg" placeholder="Masukkan NIP" />
           </div>
 
           <!-- Password input -->

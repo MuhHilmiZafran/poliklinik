@@ -93,67 +93,59 @@ if (isset($_POST['simpanData'])) {
             <textarea type="text" name="catatan" class="form-control" required
               value="<?php echo $catatan ?>"></textarea>
           </div>
-          <div class="dropdown mb-3 w-25">
+          <div class="mb-3 w-25">
             <label for="id_obat">Obat <span class="text-danger">*</span></label>
-            <!-- <select class="form-select" name="id_obat" aria-label="id_obat">
-              <option value="" selected>Pilih Obat...</option>
-              <?php
-                            $result = mysqli_query($mysqli, "SELECT * FROM obat");
-
-                            while ($data = mysqli_fetch_assoc($result)) {
-                                echo "<option value='" . $data['id'] . "'>" . $data['nama_obat'] . "</option>";
-                            }
-                            ?>
-
-            </select> -->
-
-          </div>
-          <div class="dropdown mb-3 w-25">
-            <label for="id_obat">Obat <span class="text-danger">*</span></label>
+            </br>
             <select class="form-select" name="id_obat[]" id="id_obat" aria-label="id_obat" multiple>
-              <option value="" selected>Pilih Obat...</option>
               <?php
-        $result = mysqli_query($mysqli, "SELECT * FROM obat");
+                $result = mysqli_query($mysqli, "SELECT * FROM obat");
 
-        while ($data = mysqli_fetch_assoc($result)) {
-            echo "<option value='" . $data['id'] . "'>" . $data['nama_obat'] . "</option>";
-        }
-        ?>
+                while ($data = mysqli_fetch_assoc($result)) {
+                  echo "<option value='" . $data['id'] . "' data-harga='" . $data['harga'] . "'>" . $data['nama_obat'] . " (" . $data['kemasan'] . ")"  . " (Rp " . $data['harga'] . ")" . "</option>";
+              }
+              ?>
             </select>
-          </div>
-
-          <!-- Selected Drugs Section -->
-          <div id="selectedDrugsSection" class="mb-3 w-25">
-            <label>Obat yang Dipilih:</label>
-            <ul id="selectedDrugsList"></ul>
           </div>
 
           <script>
           document.addEventListener("DOMContentLoaded", function() {
-            const idObatDropdown = document.getElementById('id_obat');
-            const selectedDrugsList = document.getElementById('selectedDrugsList');
-
-            idObatDropdown.addEventListener('change', function() {
-              updateSelectedDrugs();
+            // Initialize Select2 for the id_obat dropdown
+            $('#id_obat').select2({
+              placeholder: 'Pilih Obat'
             });
 
-            function updateSelectedDrugs() {
-              // Clear the existing list
-              selectedDrugsList.innerHTML = '';
+            // Add an onchange event listener to the id_obat dropdown
+            $('#id_obat').on('change.select2', function(e) {
+              updateTotalBiayaPeriksa();
+            });
 
-              // Get the selected options
-              const selectedOptions = Array.from(idObatDropdown.selectedOptions);
+            updateTotalBiayaPeriksa();
 
-              // Display selected drugs below the dropdown
-              selectedOptions.forEach(function(option) {
-                const listItem = document.createElement('li');
-                listItem.textContent = option.text;
-                selectedDrugsList.appendChild(listItem);
-              });
-            }
           });
+
+          // Function to update the total biaya periksa
+          function updateTotalBiayaPeriksa() {
+            var baseBiayaPeriksa = 150000;
+            var biayaPeriksa = baseBiayaPeriksa;
+
+            // Get selected options from the id_obat dropdown
+            var selectedObats = document.getElementById('id_obat').selectedOptions;
+
+            // Loop through selected options and update biayaPeriksa
+            for (var i = 0; i < selectedObats.length; i++) {
+              var hargaObat = parseFloat(selectedObats[i].getAttribute('data-harga'));
+              biayaPeriksa += parseFloat(hargaObat);
+            }
+
+
+            // Display the updated total biaya periksa
+            document.getElementById('total_biaya_periksa').textContent = 'Total Biaya Periksa: Rp ' + biayaPeriksa
+              .toLocaleString();
+          }
           </script>
 
+          <!-- Add an element to display the total biaya periksa -->
+          <div id="total_biaya_periksa" class="alert alert-success" role="alert"></div>
 
           <div class="col mt-3">
             <div class="col">
