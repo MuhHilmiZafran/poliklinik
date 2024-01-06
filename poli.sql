@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2023 at 01:59 PM
+-- Generation Time: Jan 06, 2024 at 04:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,13 @@ CREATE TABLE `daftar_poli` (
 --
 
 INSERT INTO `daftar_poli` (`id`, `id_pasien`, `id_jadwal`, `keluhan`, `no_antrian`, `tanggal`) VALUES
-(2, 1, 5, 'Baru puber di usia remaja', 1, '2023-12-31');
+(2, 4, 5, 'dszafzdfazfzfd', 1, '2024-01-05'),
+(4, 1, 5, 'qwetyuqwe', 2, '2024-01-05'),
+(6, 2, 6, 'asasasasdasdasfasd', 1, '2024-01-05'),
+(8, 2, 5, 'qwertyu', 3, '2024-01-05'),
+(10, 1, 6, 'trewsddddddd', 2, '2024-01-05'),
+(12, 4, 5, 'uyttyytytytytyty', 4, '2024-01-05'),
+(14, 1, 5, 'dggdgfdgdfgddfgdggd', 5, '2024-01-05');
 
 -- --------------------------------------------------------
 
@@ -54,6 +60,28 @@ CREATE TABLE `detail_periksa` (
   `id_periksa` int(11) UNSIGNED NOT NULL,
   `id_obat` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_periksa`
+--
+
+INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
+(7, 12, 2),
+(8, 12, 14),
+(9, 14, 2),
+(10, 14, 14),
+(11, 14, 15),
+(12, 16, 2),
+(13, 16, 12),
+(14, 16, 14),
+(15, 16, 15),
+(16, 17, 2),
+(17, 18, 12),
+(18, 18, 14),
+(19, 18, 15),
+(20, 19, 2),
+(21, 19, 12),
+(22, 19, 14);
 
 -- --------------------------------------------------------
 
@@ -77,7 +105,8 @@ CREATE TABLE `dokter` (
 
 INSERT INTO `dokter` (`id`, `nama`, `alamat`, `no_hp`, `id_poli`, `nip`, `password`) VALUES
 (19, 'Dr Hilmi', 'Hadipolo', '089776726434', 6, '2002300502', '$2y$10$12nYQDinTj2dZijpvxAfPueECGtqb2fluVhDU.fDHzn0doeKpQozK'),
-(21, 'Dr Adit', 'Semarang', '089776726404', 7, '3009003002990004', '$2y$10$wXCQWOGvv/J9wYVq84/AjOn3OiS9ZDNvIHftLETW1qzRWcTKTozKO');
+(21, 'Dr Adit', 'Semarang', '089776726404', 7, '3009003002990004', '$2y$10$wXCQWOGvv/J9wYVq84/AjOn3OiS9ZDNvIHftLETW1qzRWcTKTozKO'),
+(22, 'Dr Susanto', 'Semarang', '089776726433', 8, '200031010002', '$2y$10$jfboR46sZTLvTG8iUKv8wux1ClONSjNkfJkQiPcBR2gQb5vEYrH0u');
 
 -- --------------------------------------------------------
 
@@ -122,7 +151,9 @@ CREATE TABLE `obat` (
 
 INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
 (2, 'Panadol', 'Strip', 15000),
-(12, 'Paracetamol Plus', 'Strip', 12000);
+(12, 'Paracetamol Plus', 'Strip', 12000),
+(14, 'halogen', '1 saset', 25000),
+(15, 'Albendazol tablet 400 mg', 'ktk 5 x 6 tablet', 16470);
 
 -- --------------------------------------------------------
 
@@ -145,7 +176,9 @@ CREATE TABLE `pasien` (
 
 INSERT INTO `pasien` (`id`, `nama`, `alamat`, `no_ktp`, `no_hp`, `no_rm`) VALUES
 (1, 'Sasuke', 'Konoha', '3319060105020002', '08986788890', '202312-001'),
-(2, 'Yagami', 'Jepang', '3320406010001', '089776726434', '202312-002');
+(2, 'Yagami', 'Jepang', '3320406010001', '089776726434', '202312-002'),
+(3, 'Rahmat', 'Kudus', '331906050030002', '087654765456', '202401-001'),
+(4, 'gustina', 'Hadipolo', '34343434343', '089776726434', '202401-002');
 
 -- --------------------------------------------------------
 
@@ -160,6 +193,18 @@ CREATE TABLE `periksa` (
   `catatan` text NOT NULL,
   `biaya_periksa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `periksa`
+--
+
+INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_periksa`) VALUES
+(12, 2, '2024-01-04 18:19:31', 'asdasdasdasd', 190000),
+(14, 6, '2024-01-04 18:30:22', 'asdasdasdasdasd', 206470),
+(16, 4, '2024-01-04 18:40:13', 'ini adalah', 218470),
+(17, 8, '2024-01-05 13:16:44', 'asdasdadsad', 165000),
+(18, 10, '2024-01-05 13:17:58', 'terbaik', 203470),
+(19, 14, '2024-01-05 14:28:39', 'asdasdasd', 202000);
 
 -- --------------------------------------------------------
 
@@ -201,8 +246,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`) VALUES
-(1, '', 'hilmi', '$2y$10$5BcbcZM/7Zr./stzjuALTuYZ2bs9ITQW3rbD/QLnJJ0OxIi0RuOg.', 1),
-(2, '', 'admin', '$2y$10$nL55Gxo7RsHjaffAHhaba.koFS8rD.5Hrve9uVjJ8rHJsLDSsbzfO', 0);
+(1, 'hilmi', 'hilmi', '$2y$10$gVw.JJWXZmxWDE0Pk8QwX.pVSP0j2f2EWWlhTA3vCisFgXw3Ns3KS', 1),
+(2, 'admin111111', 'admin1', '$2y$10$uUDY/Bnfto9Q6W1AYQPcxe1wrOMkwufso3XqxULQfn9rt8eKXEstW', 0),
+(4, 'admin2', 'admin2', '$2y$10$yh5oLAK.Fsr55atZG4YYHejpwhwrP/qH1A30RvJLRpy024mQ64Fc2', 0);
 
 --
 -- Indexes for dumped tables
@@ -277,19 +323,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `daftar_poli`
 --
 ALTER TABLE `daftar_poli`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `jadwal_periksa`
@@ -301,19 +347,19 @@ ALTER TABLE `jadwal_periksa`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `poli`
@@ -325,7 +371,7 @@ ALTER TABLE `poli`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
