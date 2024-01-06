@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Register</div>
+        <div class="card-header text-center" style="font-weight: bold; font-size: 32px;">Tambah / Edit Admin</div>
         <div class="card-body">
           <form class="form col" method="POST" action="" name="myForm" onsubmit="return(validate());">
             <!-- Kode php untuk menghubungkan form dengan database -->
