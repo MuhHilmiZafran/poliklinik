@@ -13,17 +13,31 @@ if (isset($_POST['simpan'])) {
   $no_hp = $_POST['no_hp'];
   $id_poli = $_POST['id_poli'];
   $nip = $_POST['nip'];
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '';
   if (isset($_POST['id'])) {
-      $ubah = mysqli_query($mysqli, "UPDATE dokter SET 
-                                          nama = '$nama',
-                                          alamat = '$alamat',
-                                          no_hp = '$no_hp',
-                                          id_poli = '$id_poli',
-                                          nip = '$nip',
-                                          password = '$password'
-                                          WHERE
-                                          id = '" . $_POST['id'] . "'");
+      // $ubah = mysqli_query($mysqli, "UPDATE dokter SET 
+      //                                     nama = '$nama',
+      //                                     alamat = '$alamat',
+      //                                     no_hp = '$no_hp',
+      //                                     id_poli = '$id_poli',
+      //                                     nip = '$nip',
+      //                                     password = '$password'
+      //                                     WHERE
+      //                                     id = '" . $_POST['id'] . "'");
+      $updateQuery = "UPDATE dokter SET 
+      nama = '$nama',
+      alamat = '$alamat',
+      no_hp = '$no_hp',
+      id_poli = '$id_poli',
+      nip = '$nip'";
+  
+      if (!empty($_POST['password'])) {
+      $updateQuery .= ", password = '$password'";
+      }
+  
+      $updateQuery .= " WHERE id = '" . $_POST['id'] . "'";
+  
+      $ubah = mysqli_query($mysqli, $updateQuery);
   } else {
       $tambah = mysqli_query($mysqli, "INSERT INTO dokter (nama, alamat, no_hp, id_poli, nip, password) 
                                           VALUES (
@@ -137,8 +151,7 @@ if (isset($_GET['aksi'])) {
         Password
       </label>
       <div>
-        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="password"
-          value="<?php echo isset($existingPassword) ? $existingPassword : ''; ?>">
+        <input type="password" class="form-control" name="password" id="inputPassword" placeholder="password">
       </div>
     </div>
     <div class="col mt-3">

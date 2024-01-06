@@ -6,15 +6,15 @@ if (!isset($_SESSION)) {
 if (isset($_POST['simpan'])) {
   $nama = $_POST['nama'];
   $username = $_POST['username'];
-  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '';
   if (isset($_POST['id'])) {
     $updateQuery = "UPDATE user SET 
     nama = '$nama',
     username = '$username'";
 
-    if (!empty($password)) {
+  if (!empty($_POST['password'])) {
     $updateQuery .= ", password = '$password'";
-    }
+  }
 
     $updateQuery .= " WHERE id = '" . $_POST['id'] . "'";
 
