@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2024 at 04:55 AM
+-- Generation Time: Jan 06, 2024 at 07:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,22 +66,8 @@ CREATE TABLE `detail_periksa` (
 --
 
 INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
-(7, 12, 2),
-(8, 12, 14),
-(9, 14, 2),
-(10, 14, 14),
-(11, 14, 15),
-(12, 16, 2),
-(13, 16, 12),
-(14, 16, 14),
-(15, 16, 15),
-(16, 17, 2),
-(17, 18, 12),
-(18, 18, 14),
-(19, 18, 15),
-(20, 19, 2),
-(21, 19, 12),
-(22, 19, 14);
+(23, 20, 63),
+(24, 20, 75);
 
 -- --------------------------------------------------------
 
@@ -142,7 +128,7 @@ CREATE TABLE `obat` (
   `id` int(11) UNSIGNED NOT NULL,
   `nama_obat` varchar(50) NOT NULL,
   `kemasan` varchar(35) NOT NULL,
-  `harga` double NOT NULL
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -150,10 +136,73 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
-(2, 'Panadol', 'Strip', 15000),
-(12, 'Paracetamol Plus', 'Strip', 12000),
-(14, 'halogen', '1 saset', 25000),
-(15, 'Albendazol tablet 400 mg', 'ktk 5 x 6 tablet', 16470);
+(9, 'Albendazol tablet 400mg', 'Kotak 5 x 6 tablet', 16470),
+(10, 'Alopurinol tablet 100mg', 'Kotak 10 x 10 tablet', 17820),
+(11, 'Alopurinol tablet 300mg', 'Kotak 3 x 10 tablet', 9923),
+(12, 'Alprazolam tablet 0,5 mg', 'Kotak 10 x 10 tablet', 78975),
+(13, 'Alprazolam tablet 1 mg', 'Kotak 10 x 10 tablet', 121500),
+(14, 'Ibuprofen tablet 400 mg', 'Kotak 10 x 10 tablet', 27680),
+(15, 'Ambroxol tablet 30 mg', 'Kotak 10 x 10 tablet', 16884),
+(16, 'Amilorida tablet 5 mg (HCl)', 'Kotak 10 x 10 tablet', 11906),
+(17, 'Aminofilin tablet 150 mg', 'Botol 1000 tablet', 58757),
+(18, 'Amlodipin tablet 10 mg', 'Kotak 3 x 10 tablet', 68580),
+(19, 'Amoksisilin kapsul 250 mg', 'Kotak 10 x 10 kapsul', 38799),
+(20, 'Ampisilin kaplet 250 mg', 'Kotak 10 x 10 kaplet', 36315),
+(21, 'Betahistin Mesilat tablet 6 mg', 'Kotak 3 x 10 tablet', 37422),
+(22, 'Bisoprolol tablet 5 mg', 'Kotak 3 x 10 tablet', 94028),
+(23, 'Cetirizine tablet 10 mg', 'Kotak 3 x 10 tablet', 13365),
+(24, 'Cisapride tablet 10 mg', 'Kotak 10 x 10 tablet', 183398),
+(25, 'Dapson tablet 100 mg', 'Botol 1000 tablet', 42525),
+(26, 'Diazepam tablet 2 mg', 'Botol 100 tablet', 4307),
+(27, 'Diazepam tablet 2 mg', 'Botol 1000 tablet', 42822),
+(28, 'Efedrin tablet 25 mg (HCl)', 'Botol 250 tablet', 17300),
+(29, 'Eritromisin kapsul 250 mg', 'Kotak 10 x 10 tablet', 68040),
+(30, 'Etoposid kapsul 100 mg', 'Botol 10 kapsul', 94238),
+(31, 'Famotidine tablet 40 mg', 'Kotak 5 x 10 tablet', 11948),
+(32, 'Fenilbutason tablet 200 mg', 'Kotak 15 x 10 tablet', 19643),
+(33, 'Fenobarbital tablet 30 mg', 'Kotak 10 x 10 tablet', 8762),
+(34, 'Gemfibrozil kapsul 300 mg', 'Kotak 12 x 10 kapsul', 47115),
+(35, 'Glimepiride tablet 1 mg', 'Kotak 5 x 10 tablet', 51305),
+(36, 'Gliquidon tablet 30 mg', 'Kotak 10 x 10 tablet', 87114),
+(37, 'Haloperidol tablet 5 mg', 'Kotak 10 x 10 tablet', 16509),
+(38, 'Haloperidol tablet 2 mg', 'Kotak 10 x 10 tablet', 12859),
+(39, 'Hidroklorotiazida tablet 25 mg', 'Botol 1000 tablet', 49005),
+(40, 'Indometasin kapsul 25 mg', 'Kotak 10 x 10 tablet', 5347),
+(41, 'Isoniazid tablet 100 mg', 'Kotak 10 x 10 tablet', 5940),
+(42, 'Itrakonazol kapsul 100 mg', 'Kotak 3 x 10 kapsul', 58482),
+(43, 'Kalium Diklofenak tablet 25 mg', 'Kotak 5 x 10 tablet', 26382),
+(44, 'Kalsium Karbonat tablet 500 mg', 'Botol 100 tablet', 5835),
+(45, 'Kaptopril tablet 25 mg', 'Kotak 6 x 10 tablet', 11613),
+(46, 'Levamisol tablet 50 mg', 'Botol 25 tablet', 3983),
+(47, 'Levofloksasin tablet 500 mg', 'Kotak 5 x 10 tablet', 77873),
+(48, 'Linkomisin kapsul 500 mg', 'Kotak 5 x 10 tablet', 43875),
+(49, 'Mebendazol tablet 100 mg', 'Kotak 5 x 6 tablet', 8775),
+(50, 'Meloksikam tablet 15 mg', 'Kotak 5 x 10 tablet', 80933),
+(51, 'Metformin HCl tablet 500 mg', 'Kotak 10 x 10 tablet', 24503),
+(52, 'Natrium Bikarbonat tablet 500 mg', 'Botol 1000 tablet', 19305),
+(53, 'Natrium Diklofenak tablet 50 mg', 'Kotak 5 x 10 tablet', 14693),
+(54, 'Nevirapin tablet 200 mg', 'Botol 60 tablet', 211613),
+(55, 'Ofloxacin tablet 200 mg', 'Kotak 5 x 10 tablet', 39832),
+(56, 'Omeprazol kapsul 20 mg', 'Botol 7 kapsul', 7271),
+(57, 'Oseltamivir 75 mg', 'Kotak 10', 175500),
+(58, 'Papaverin tablet 40 mg', 'Botol 1000 tablet', 134325),
+(59, 'Parasetamol tablet 500 mg', 'Kotak 10 x 10 tablet', 14175),
+(60, 'Perfenazin tablet 4 mg (HCl)', 'Botol 100 tablet', 7425),
+(61, 'Ranitidin tablet 150 mg', 'Kotak 3 x 10 tablet', 8910),
+(62, 'Reserpin tablet 0,25 mg', 'Botol 1000 tablet', 118800),
+(63, 'Risperidon tablet 1 mg', 'Kotak 5 x 10 tablet', 126968),
+(64, 'Sefadroksil kapsul 250 mg', 'Kotak 3 x 10 kapsul', 18025),
+(65, 'Sefadroksil kapsul 500 mg', 'Kotak 10 x 10 kapsul', 113400),
+(66, 'Sefaklor kapsul 500 mg', 'Kotak 3 x 10 kapsul', 88455),
+(67, 'Tamoksifen tablet 20 mg', 'Botol 30 tablet', 52838),
+(68, 'Teofilin tablet 150 mg', 'Kotak 10 x 10 tablet', 7339),
+(69, 'Tetrasiklin kapsul 250 mg', 'Kotak 10 x 10 tablet', 18900),
+(70, 'Valproat tablet 150 mg', 'Botol 50 tablet', 15922),
+(71, 'Verapamil tablet 80 mg (HCl)', 'Kotak 10 x 10 tablet', 47540),
+(72, 'Vitamin B Kompleks tablet', 'Botol 1000 tablet', 29970),
+(73, 'Zidovudin 300 mg + Lamivudine 150 mg', 'Botol 60 tablet', 252450),
+(74, 'Zidovudin tablet 100 mg', 'Botol 60 tablet', 76849),
+(75, 'Zinc tablet 20 mg', 'Kotak 10 x 10 tablet', 64125);
 
 -- --------------------------------------------------------
 
@@ -199,12 +248,7 @@ CREATE TABLE `periksa` (
 --
 
 INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_periksa`) VALUES
-(12, 2, '2024-01-04 18:19:31', 'asdasdasdasd', 190000),
-(14, 6, '2024-01-04 18:30:22', 'asdasdasdasdasd', 206470),
-(16, 4, '2024-01-04 18:40:13', 'ini adalah', 218470),
-(17, 8, '2024-01-05 13:16:44', 'asdasdadsad', 165000),
-(18, 10, '2024-01-05 13:17:58', 'terbaik', 203470),
-(19, 14, '2024-01-05 14:28:39', 'asdasdasd', 202000);
+(20, 4, '2024-01-06 05:44:29', 'diminum 3x sehari', 341093);
 
 -- --------------------------------------------------------
 
@@ -267,8 +311,8 @@ ALTER TABLE `daftar_poli`
 --
 ALTER TABLE `detail_periksa`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_detail_periksa_obat` (`id_obat`),
-  ADD KEY `fk_detail_periksa_periksa` (`id_periksa`);
+  ADD KEY `fk_detail_periksa_periksa` (`id_periksa`),
+  ADD KEY `fk_detail_periksa_obat` (`id_obat`);
 
 --
 -- Indexes for table `dokter`
@@ -329,7 +373,7 @@ ALTER TABLE `daftar_poli`
 -- AUTO_INCREMENT for table `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `dokter`
@@ -347,7 +391,7 @@ ALTER TABLE `jadwal_periksa`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `pasien`
@@ -359,7 +403,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT for table `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `poli`
