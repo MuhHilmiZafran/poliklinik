@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2024 at 07:05 AM
+-- Generation Time: Jan 06, 2024 at 08:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -67,7 +67,10 @@ CREATE TABLE `detail_periksa` (
 
 INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
 (23, 20, 63),
-(24, 20, 75);
+(24, 20, 75),
+(25, 21, 10),
+(26, 21, 11),
+(27, 21, 12);
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,6 @@ CREATE TABLE `jadwal_periksa` (
 --
 
 INSERT INTO `jadwal_periksa` (`id`, `id_dokter`, `hari`, `jam_mulai`, `jam_selesai`) VALUES
-(3, 21, 'Senin', '08:00:00', '10:30:00'),
 (4, 21, 'Selasa', '13:00:00', '15:00:00'),
 (5, 19, 'Senin', '12:00:00', '15:00:00'),
 (6, 19, 'Rabu', '09:00:00', '12:00:00');
@@ -168,7 +170,6 @@ INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
 (38, 'Haloperidol tablet 2 mg', 'Kotak 10 x 10 tablet', 12859),
 (39, 'Hidroklorotiazida tablet 25 mg', 'Botol 1000 tablet', 49005),
 (40, 'Indometasin kapsul 25 mg', 'Kotak 10 x 10 tablet', 5347),
-(41, 'Isoniazid tablet 100 mg', 'Kotak 10 x 10 tablet', 5940),
 (42, 'Itrakonazol kapsul 100 mg', 'Kotak 3 x 10 kapsul', 58482),
 (43, 'Kalium Diklofenak tablet 25 mg', 'Kotak 5 x 10 tablet', 26382),
 (44, 'Kalsium Karbonat tablet 500 mg', 'Botol 100 tablet', 5835),
@@ -248,7 +249,8 @@ CREATE TABLE `periksa` (
 --
 
 INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_periksa`) VALUES
-(20, 4, '2024-01-06 05:44:29', 'diminum 3x sehari', 341093);
+(20, 4, '2024-01-06 05:44:29', 'diminum 3x sehari', 341093),
+(21, 2, '2024-01-06 08:14:03', 'asaa', 256718);
 
 -- --------------------------------------------------------
 
@@ -291,8 +293,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `role`) VALUES
 (1, 'hilmi', 'hilmi', '$2y$10$gVw.JJWXZmxWDE0Pk8QwX.pVSP0j2f2EWWlhTA3vCisFgXw3Ns3KS', 1),
-(2, 'admin111111', 'admin1', '$2y$10$uUDY/Bnfto9Q6W1AYQPcxe1wrOMkwufso3XqxULQfn9rt8eKXEstW', 0),
-(4, 'admin2', 'admin2', '$2y$10$yh5oLAK.Fsr55atZG4YYHejpwhwrP/qH1A30RvJLRpy024mQ64Fc2', 0);
+(2, 'admin111111', 'admin1', '$2y$10$uUDY/Bnfto9Q6W1AYQPcxe1wrOMkwufso3XqxULQfn9rt8eKXEstW', 0);
 
 --
 -- Indexes for dumped tables
@@ -367,13 +368,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `daftar_poli`
 --
 ALTER TABLE `daftar_poli`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `dokter`
@@ -397,19 +398,19 @@ ALTER TABLE `obat`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `poli`
 --
 ALTER TABLE `poli`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`

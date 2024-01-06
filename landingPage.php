@@ -42,7 +42,7 @@
 <body>
 
   <div class="header">
-    <h2>Selamat datang di Website Daftar Online Klinik Sejahtera Sentosa</h2>
+    <h2>Selamat Datang di Website Daftar Online Klinik Sejahtera Sentosa</h2>
   </div>
 
   <div class="features">

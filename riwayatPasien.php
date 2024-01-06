@@ -49,7 +49,7 @@
               <td><?php echo $data['hari'] ?></td>
               <td><?php echo $data['tgl_periksa'] ?></td>
               <td><?php echo $data['catatan'] ?></td>
-              <td><?php echo $data['biaya_periksa'] ?></td>
+              <td><?php echo "Rp ". $data['biaya_periksa'] ?></td>
               <td><?php echo $data['nama_obat'] ?></td>
             </tr>
             <?php endwhile; ?>
