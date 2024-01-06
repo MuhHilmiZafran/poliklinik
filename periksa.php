@@ -147,10 +147,8 @@ if (isset($_POST['simpanData'])) {
           <!-- Add an element to display the total biaya periksa -->
           <div id="total_biaya_periksa" class="alert alert-success" role="alert"></div>
 
-          <div class="col mt-3">
-            <div class="col">
-              <button type="submit" name="simpanData" class="btn btn-primary rounded px-3 mt-auto">Simpan</button>
-            </div>
+          <div class="mt-3">
+            <button type="submit" name="simpanData" class="btn btn-primary rounded mt-auto">Simpan</button>
           </div>
         </form>
       </div>
@@ -163,6 +161,8 @@ if (isset($_POST['simpanData'])) {
               <th valign="middle">No</th>
               <th valign="middle">Nama Pasien</th>
               <th valign="middle">No. Antrian</th>
+              <th valign="middle">Hari</th>
+              <th valign="middle">Jam</th>
               <th valign="middle">Keluhan</th>
               <th valign="middle">Aksi</th>
             </tr>
@@ -190,6 +190,9 @@ if (isset($_POST['simpanData'])) {
               <td><?php echo $no++ ?></td>
               <td><?php echo $data['nama'] ?></td>
               <td><?php echo $data['no_antrian'] ?></td>
+              <td><?php echo $data['hari'] ?></td>
+              <td><?php echo $data['jam_mulai'] . " - " . $data['jam_selesai'] ?></td>
+
               <td><?php echo $data['keluhan'] ?></td>
               <td>
                 <a class="btn btn-success rounded-pill px-3"

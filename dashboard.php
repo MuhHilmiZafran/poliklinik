@@ -143,7 +143,7 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboard.php?page=jadwalPeriksa" class="nav-link">
-                <i class="nav-icon fas fa-solid fa-hospital-user"></i>
+                <i class="nav-icon fas fa-solid fa-calendar-check"></i>
                 <p>
                   Jadwal Periksa
                 </p>
@@ -159,7 +159,7 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboard.php?page=pasien" class="nav-link">
-                <i class="nav-icon fas fa-solid fa-hospital"></i>
+                <i class="nav-icon fas fa-solid fa-bed"></i>
                 <p>
                   Pasien
                 </p>
@@ -175,7 +175,7 @@ include_once("koneksi.php");
             </li>
             <li class="nav-item">
               <a href="dashboard.php?page=registerAdmin" class="nav-link">
-                <i class="nav-icon fas fa-solid fa-pills"></i>
+                <i class="nav-icon fas fa-solid fa-user-plus"></i>
                 <p>
                   Add Admin
                 </p>

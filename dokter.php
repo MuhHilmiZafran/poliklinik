@@ -15,15 +15,6 @@ if (isset($_POST['simpan'])) {
   $nip = $_POST['nip'];
   $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '';
   if (isset($_POST['id'])) {
-      // $ubah = mysqli_query($mysqli, "UPDATE dokter SET 
-      //                                     nama = '$nama',
-      //                                     alamat = '$alamat',
-      //                                     no_hp = '$no_hp',
-      //                                     id_poli = '$id_poli',
-      //                                     nip = '$nip',
-      //                                     password = '$password'
-      //                                     WHERE
-      //                                     id = '" . $_POST['id'] . "'");
       $updateQuery = "UPDATE dokter SET 
       nama = '$nama',
       alamat = '$alamat',
