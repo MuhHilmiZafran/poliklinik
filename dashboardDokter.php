@@ -19,8 +19,7 @@ include_once("koneksi.php");
   <title>Klinik Sejahtera Sentosa</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -96,7 +95,7 @@ include_once("koneksi.php");
         </li>
         <li class="nav-item">
           <?php
-        if (isset($_SESSION['nip'])) {
+          if (isset($_SESSION['nip'])) {
             $doctorNIP = $_SESSION['nip'];
 
             // Fetch the doctor's name from the database using the existing connection
@@ -104,20 +103,20 @@ include_once("koneksi.php");
             $result = mysqli_query($mysqli, $query);
 
             if ($result && mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                $doctorName = $row['nama'];
+              $row = mysqli_fetch_assoc($result);
+              $doctorName = $row['nama'];
             } else {
-                $doctorName = "Unknown"; // Default value if the doctor is not found
+              $doctorName = "Unknown"; // Default value if the doctor is not found
             }
-        ?>
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="logoutDokter.php">Logout (<?php echo $doctorName; ?>)</a>
-            </li>
-          </ul>
+          ?>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="logoutDokter.php">Logout (<?php echo $doctorName; ?>)</a>
+              </li>
+            </ul>
           <?php
-        } 
-        ?>
+          }
+          ?>
 
         </li>
       </ul>
@@ -154,6 +153,14 @@ include_once("koneksi.php");
                 <i class="nav-icon fas fa-solid fa-stethoscope"></i>
                 <p>
                   Periksa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="dashboardDokter.php?page=jadwalPeriksaDokter" class="nav-link">
+                <i class="nav-icon fas fa-solid fa-book-medical"></i>
+                <p>
+                  Jadwal Dokter
                 </p>
               </a>
             </li>
@@ -201,25 +208,25 @@ include_once("koneksi.php");
       <main role="main" class="container">
         <div class="container-fluid">
           <?php
-            if (isset($_GET['page'])) {
-                include($_GET['page'] . ".php");
-            } else {
-                if (isset($_SESSION['nip'])) {
-                    $doctorNIP = $_SESSION['nip'];
+          if (isset($_GET['page'])) {
+            include($_GET['page'] . ".php");
+          } else {
+            if (isset($_SESSION['nip'])) {
+              $doctorNIP = $_SESSION['nip'];
 
-                    $query = "SELECT nama FROM dokter WHERE nip = '$doctorNIP'";
-                    $result = mysqli_query($mysqli, $query);
+              $query = "SELECT nama FROM dokter WHERE nip = '$doctorNIP'";
+              $result = mysqli_query($mysqli, $query);
 
-                    if ($result && mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        $doctorName = $row['nama'];
-                        echo "<h2>Halo, $doctorName</h2>";
-                    } else {
-                        echo "<h2>Halo, Dokter</h2>"; 
-                    }
-                } 
+              if ($result && mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $doctorName = $row['nama'];
+                echo "<h2>Halo, $doctorName</h2>";
+              } else {
+                echo "<h2>Halo, Dokter</h2>";
+              }
             }
-            ?>
+          }
+          ?>
         </div>
       </main>
       <!-- /.content -->
@@ -243,7 +250,7 @@ include_once("koneksi.php");
   <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

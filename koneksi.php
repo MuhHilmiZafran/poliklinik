@@ -11,5 +11,3 @@ $mysqli = mysqli_connect(
     $databasePassword,
     $databaseName
 );
-
-?>
